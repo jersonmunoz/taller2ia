@@ -1,23 +1,34 @@
 package taller2;
-
+import java.util.*;
 public class MatrizDistancia {
 	private int [][] matriz;
-	private int numero = 0;
 	
 	public MatrizDistancia(int numero) {
 		super();
-		this.matriz=new int [numero][numero];
-		this.numero= numero;
+		this.matriz=this.crearMatriz(numero);
+	}
+	public int[][] obtenerMatriz() {
+		return this.matriz;
+	}
+	public int [][] crearMatriz(int n) {
+		Random random = new Random();
+        int[][] array = new int[n][n];
+        for (int i = 0; i < array.length; i++) {
+        	  for (int j = 0; j <= i; j++) {
+        	    int x = random.nextInt(101);
+        	    if(i==j) {
+        	    	array[i][j]=0;
+        	    }
+        	    else {
+          	      array[j][i] = x;
+          	      array[i][j] = x;
+          	    }
+        	  }
+        }
+        for( int[] a : array ) { 
+            System.out.println( Arrays.toString( a ));
+        }
+        return array;
 	}
 
-	public int [][] getMatriz() {
-		for(int i =0;i<numero;i++) {
-			System.out.print("[");
-			for(int j=0;j<numero;j++) {
-				System.out.print(matriz[i][j]+",");
-			}
-			System.out.print("]");
-		}
-			return this.matriz;
-	}
 }
