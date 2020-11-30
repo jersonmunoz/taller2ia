@@ -4,24 +4,14 @@ public class NodoCiudad {
 	private String ciudad;
 	private boolean visitado;
 	private List<NodoCiudad> adyacentes;
-	private NodoCiudad padre;
 
 public NodoCiudad(String ciudad){
 	this.ciudad=ciudad;
-	this.adyacentes= new ArrayList<NodoCiudad>();
+	this.adyacentes= new LinkedList<NodoCiudad>();
 	}
 
-public void añadirAdjacentes(NodoCiudad nodo) {
+public void añadirAdyacentes(NodoCiudad nodo) {
 	this.adyacentes.add(nodo);	
-}
-public boolean getVisitado() {
-	return visitado;
-}
-public void setPadre(NodoCiudad nodo) {
-	padre=nodo;
-}
-public NodoCiudad getPadre() {
-	return padre;
 }
 public List<NodoCiudad> getAdyacentes() {
     return adyacentes;
@@ -32,4 +22,7 @@ public List<NodoCiudad> getAdyacentes() {
  public void setVisitado(boolean visitado) {
 	 this.visitado=visitado;
  }
+ public boolean getVisitado() {
+		return visitado;
+	}
 }
